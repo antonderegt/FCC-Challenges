@@ -1,0 +1,54 @@
+$primary: #189BA3;
+$secondary: #481C19;
+
+body {
+	font: 100% Helvetica;
+	background-color: $primary;
+}
+#root {
+	position: absolute;
+	left: 10%;
+	right: 10%;
+}
+%tableBorder {
+	border: 2px solid gray;
+	border-radius: 2px;
+}
+table {
+	width: 100%;
+	@extend %tableBorder;
+	border-collapse: collapse;
+
+	th {
+		@extend %tableBorder;
+		background-color: $secondary;
+		color: white;
+		}
+	tr {
+		&:nth-child(2n) {
+			background: lightgray;
+		}
+		&:nth-child(2n+1) {
+			background: white;
+		}
+	}
+	td {
+		@extend %tableBorder;
+		vertical-align: center;
+	}
+	.center {
+		text-align: center;
+	}
+}
+
+h2 {
+	color: $primary;
+}
+img {
+  width: 40px;
+  border: 2px;
+  border-style: solid;
+  border-color: $secondary;
+  border-radius: 5px;
+
+}
