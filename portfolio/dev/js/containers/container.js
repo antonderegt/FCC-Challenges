@@ -8,7 +8,7 @@ class Container extends Component {
   render() {
     return (
       <div className="container">
-        in progress
+        <p>in progress</p>
       </div>
     )
   }

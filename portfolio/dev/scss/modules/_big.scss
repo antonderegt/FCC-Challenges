@@ -4,26 +4,13 @@
 
 }
 @media screen and (min-width: 600px)  {
-  #root {
-    max-width: 400px;
-    box-shadow: 0 1px 4px #333;
-    .container {
-      max-width: 333px;
-      margin: 0 auto;
-    }
-  }
+
 }
 @media screen and (min-width: 1000px) {
-  .container {
-    max-width: 333px;
-    margin: 0 auto;
-  }
+
 }
 @media screen and (min-width: 1400px) {
-  .container {
-    max-width: 333px;
-    margin: 0 auto;
-  }
+  
 }
 
 // On orientation change to landscape:
