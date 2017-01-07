@@ -1,0 +1,20 @@
+CACHE MANIFEST
+
+CACHE:
+./js/bundle.min.js
+#  bundle V1
+./index.html
+#  index V1
+./images/eggens.png
+#  eggens V1
+./images/icon-1x.png
+#  1x V1
+./images/icon-4x.png
+#  4x V1
+
+
+NETWORK:
+*
+
+FALLBACK:
+/ /index.html

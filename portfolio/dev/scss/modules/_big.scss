@@ -1,0 +1,32 @@
+
+// Mobile first, but if a bigger screen is used the following will be rendered:
+@media screen and (min-width: 400px)  {
+
+}
+@media screen and (min-width: 600px)  {
+  #root {
+    max-width: 400px;
+    box-shadow: 0 1px 4px #333;
+    .container {
+      max-width: 333px;
+      margin: 0 auto;
+    }
+  }
+}
+@media screen and (min-width: 1000px) {
+  .container {
+    max-width: 333px;
+    margin: 0 auto;
+  }
+}
+@media screen and (min-width: 1400px) {
+  .container {
+    max-width: 333px;
+    margin: 0 auto;
+  }
+}
+
+// On orientation change to landscape:
+@media all and (orientation: landscape) {
+
+}
