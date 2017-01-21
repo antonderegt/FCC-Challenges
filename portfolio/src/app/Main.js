@@ -40,32 +40,32 @@ const styles = {
   }
 };
 
-const muiTheme = getMuiTheme({
-});
+const muiTheme = getMuiTheme({})
 
 class Main extends Component {
   constructor(props, context) {
     super(props, context);
     this.state = {
-      drawerToggle: true,
+      drawerToggle: false,
       page: 'Portfolio',
-    };
+    }
+    this.handleToggle = this.handleToggle.bind(this)
   }
 
-  handleToggle = () => {
+  handleToggle(){
     this.setState({
       drawerToggle: !this.state.drawerToggle
-    });
+    })
   }
 
-  pageSwitcher = (page) => {
+  pageSwitcher(page) {
     this.setState({
       page
-    });
+    })
     this.handleToggle()
   }
 
-  showPage = (page) => {
+  showPage(page){
     switch (page) {
       case 'Portfolio':
         return <Portfolio/>
@@ -96,7 +96,7 @@ class Main extends Component {
           <Drawer
             open={this.state.drawerToggle}
             docked={false}
-            onRequestChange={() => {this.handleToggle()}}>
+            onRequestChange={this.handleToggle.bind(this)}>
               <img style={styles.img} src="./images/photo-anton.png" />
 
               <Subheader><h2>DitIsAnton</h2></Subheader>

@@ -30,7 +30,7 @@ const tilesData = [
     url: "https://antonderegt.github.io/FCC-Challenges"
   },
   {
-    img: "images/100.jpg",
+    img: "images/100.png",
     title: "#100DaysOfCode",
     author: "Anton de Regt",
     url: "https://github.com/antonderegt/100-days-of-code"
