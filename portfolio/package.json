@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack -p",
+    "dev": "webpack -p && surge ./src/www https://portfolio-de-regt.surge.sh",
     "start": "webpack-dev-server"
   },
   "license": "ISC",
