@@ -19,7 +19,7 @@ const styles = {
 const tilesData = [
   {
     img: "images/nac.png",
-    title: "NAC",
+    title: "Programme Booklet",
     author: "Anton de Regt",
     url: "https://antonderegt.github.io/nac"
   },
