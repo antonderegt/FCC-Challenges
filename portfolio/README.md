@@ -1,10 +1,10 @@
 # [Portfolio](https://ditisanton.nl)
 
 My personal portfolio containing:
-*Portfolio
-*eBooks (empty)
-*About
-*Contact
+* Portfolio
+* eBooks (empty)
+* About
+* Contact
 
 ## Main Tech Stack
 * [Material-UI](http://callemall.github.io/material-ui/)
