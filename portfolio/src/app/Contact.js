@@ -19,6 +19,7 @@ const Contact = () => (
       See my progress in the #100DayChallenge.<br /><br />
       <a href="https://linkedin.com/in/antonderegt" target="_blank" rel="noopener"><h1>LinkedIn</h1></a>
       My resume can of course be found here.
+      <h2>ditisanton@gmail.com</h2>
      </Paper>
   </div>
 )
