@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Calc from './Calc'
 
 class App extends Component {
   render() {
@@ -8,11 +9,12 @@ class App extends Component {
       <div className="App">
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
+          <h2>Welcome to Calculator</h2>
         </div>
         <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
+          There are 3 kinds of people in this world...<br /> Those who are good at math and those who aren't
         </p>
+        <Calc />
       </div>
     );
   }
