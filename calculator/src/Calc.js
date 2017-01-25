@@ -107,7 +107,21 @@ class Calc extends Component {
   }
 
   back() {
+    let newAns = this.state.answer.toString()
+    newAns.length <= 1 ? newAns = 0 : newAns = newAns.slice(0,-1)
 
+    if(this.state.rightNum === null) {
+      this.setState({
+        answer: newAns,
+        leftNum: newAns
+      })
+    } else {
+      let newRightNum = Math.round(this.state.rightNum / 10);
+      this.setState({
+        answer: newAns,
+        rightNum: newRightNum
+      })
+    }
   }
 
   clear() {
