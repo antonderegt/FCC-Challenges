@@ -1,6 +1,6 @@
-# [Calculator](https://antonderegt.github.io/fcc/calculator/build/index.html)
+# [Nuclear Calculator](https://antonderegt.github.io/fcc/calculator/build/index.html)
 
-Another [FCC](https://www.freecodecamp.com/) challenges.
+Another [FCC](https://www.freecodecamp.com/) challenge.
 
 ## Main Tech Stack
 * [React](https://facebook.github.io/react/)
