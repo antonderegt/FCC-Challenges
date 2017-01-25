@@ -27,13 +27,19 @@ const tilesData = [
     img: "images/fcc1.png",
     title: "FCC-Challenges",
     author: "Anton de Regt",
-    url: "https://antonderegt.github.io/FCC-Challenges"
+    url: "https://antonderegt.github.io/fcc"
   },
   {
     img: "images/100.png",
     title: "#100DaysOfCode",
     author: "Anton de Regt",
     url: "https://github.com/antonderegt/100-days-of-code"
+  },
+  {
+    img: "images/calculator.png",
+    title: "Nuclear Calculator",
+    author: "Anton de Regt",
+    url: "https://antonderegt.github.io/fcc/calculator/build/index.html"
   },
   {
     img: "images/talkabout.png",
