@@ -1,22 +1,44 @@
 .calc {
   display: flex;
   flex-direction: column;
+  padding: 1em 3em 0 3em;
+  width: 400px;
 }
 
 .flexRow {
   display: flex;
-  justify-content: center;
 }
 
 .num {
-  padding: 5px;
-  border: 1px solid green;
-  width: 100px;
+  flex: 1;
+  margin: .2em;
+  background-color: #5BC8E5;
   font-weight: 600;
+  border-radius: 6px;
+  border: 0px solid;
+  height: 3em;
+  line-height: 3em;
+}
+
+.num.red {
+  background-color: #D31B33;
 }
 
 .answer {
-  padding: 5px;
-  border: 1px solid green;
-  width: 324px;
+  flex: 1;
+  font-size: 2em;
+  padding: .3em;
+  margin: .2em;
+  background-color: #EBE8E1;
+  border-radius: 2px;
+  border: 1px solid;
+}
+
+.operation {
+  flex: 1;
+  padding: .5em;
+  margin: .2em;
+  background-color: #EBE8E1;
+  border-radius: 2px;
+  border: 1px solid;
 }

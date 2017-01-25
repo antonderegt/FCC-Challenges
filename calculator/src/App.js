@@ -11,10 +11,14 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h2>Nuclear Calculator</h2>
         </div>
-        <p className="App-intro">
-          There are 3 kinds of people in this world...<br /> Those who are good at math and those who aren't
-        </p>
-        <Calc />
+
+        <div className="flexContainer">
+          <Calc />
+        </div>
+
+        <div className="App-intro">
+          There are 3 kinds of people in this world... Those who are good at math and those who aren't
+        </div>
       </div>
     );
   }

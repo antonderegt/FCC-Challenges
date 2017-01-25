@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
 import './Calc.css'
 
-// @TODO Add operations (*,/). Add clear button. Add back button.
+// @TODO Add clear button. Add back button.
 
 const PLUS = "PLUS",
+      MULTIPLY = "MULTIPLY",
+      DIVIDE = "DIVIDE",
       MIN = "MIN";
 
 class Calc extends Component {
@@ -18,13 +20,34 @@ class Calc extends Component {
   }
 
   setOperation(op) {
+    let operation;
+
+    switch (op) {
+      case PLUS:
+        operation = '+';
+        break;
+      case MIN:
+        operation = '-';
+        break;
+      case MULTIPLY:
+        operation = 'x';
+        break;
+      case DIVIDE:
+        operation = '/';
+        break;
+      default:
+        operation = null;
+    }
+
     if(op !== null) {
       this.calculate()
     }
-    this.setState({
-      operation: op,
-      answer: (this.state.answer + ' ' + op)
-    })
+    if (op !== this.state.operation){
+      this.setState({
+        operation: op,
+        answer: (this.state.answer + ' ' + operation)
+      })
+    }
   }
 
   setNumber(val) {
@@ -66,12 +89,31 @@ class Calc extends Component {
       case MIN:
         ans = this.state.leftNum - this.state.rightNum;
         break;
+      case MULTIPLY:
+        ans = this.state.leftNum * this.state.rightNum;
+        break;
+      case DIVIDE:
+        ans = this.state.leftNum / this.state.rightNum;
+        break;
       default:
         ans = this.state.leftNum;
     }
     this.setState({
       answer: ans,
       leftNum: ans,
+      rightNum: null,
+      operation: null
+    })
+  }
+
+  back() {
+
+  }
+
+  clear() {
+    this.setState({
+      answer: 0,
+      leftNum: null,
       rightNum: null,
       operation: null
     })
@@ -98,12 +140,18 @@ class Calc extends Component {
           <div className="num" onClick={() => {this.setNumber(9)}}>9</div>
         </div>
         <div className="flexRow">
-          <div className="num" onClick={() => {this.setOperation(MIN)}}>-</div>
+          <div className="num red" onClick={() => {this.back()}}>BACK</div>
           <div className="num" onClick={() => {this.setNumber(0)}}>0</div>
-          <div className="num" onClick={() => {this.setOperation(PLUS)}}>+</div>
+          <div className="num red" onClick={() => {this.clear()}}>CLEAR</div>
         </div>
         <div className="flexRow">
-          <div className="answer" onClick={() => {this.calculate()}}>=</div>
+          <div className="operation" onClick={() => {this.setOperation(MIN)}}>-</div>
+          <div className="operation" onClick={() => {this.setOperation(MULTIPLY)}}>x</div>
+          <div className="operation" onClick={() => {this.setOperation(DIVIDE)}}>/</div>
+          <div className="operation" onClick={() => {this.setOperation(PLUS)}}>+</div>
+        </div>
+        <div className="flexRow">
+          <div className="operation" onClick={() => {this.calculate()}}>=</div>
         </div>
 
       </div>

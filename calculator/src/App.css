@@ -15,10 +15,21 @@
 }
 
 .App-intro {
-  font-size: large;
+  font-size: small;
+  background: #EBE8E1;
+  padding: .3em;
+  position: absolute;
+  bottom: 0;
+  box-sizing: border-box;
+  width: 100%;
 }
 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+.flexContainer {
+  display: flex;
+  justify-content: center;
 }
