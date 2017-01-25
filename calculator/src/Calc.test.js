@@ -6,3 +6,7 @@ it('renders without crashing', () => {
   const div = document.createElement('div');
   ReactDOM.render(<Calc />, div);
 });
+
+// it('adds 1 + 5', () => {
+//
+// })

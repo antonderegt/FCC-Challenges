@@ -1,8 +1,22 @@
 .calc {
-  /* flex it up*/
+  display: flex;
+  flex-direction: column;
+}
+
+.flexRow {
+  display: flex;
+  justify-content: center;
 }
 
 .num {
   padding: 5px;
   border: 1px solid green;
+  width: 100px;
+  font-weight: 600;
+}
+
+.answer {
+  padding: 5px;
+  border: 1px solid green;
+  width: 324px;
 }
