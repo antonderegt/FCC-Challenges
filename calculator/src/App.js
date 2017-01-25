@@ -16,9 +16,9 @@ class App extends Component {
           <Calc />
         </div>
 
-        <div className="App-intro">
-          There are 3 kinds of people in this world... Those who are good at math and those who aren't
-        </div>
+        // <div className="App-intro">
+        //   There are 3 kinds of people in this world... Those who are good at math and those who aren't
+        // </div>
       </div>
     );
   }
