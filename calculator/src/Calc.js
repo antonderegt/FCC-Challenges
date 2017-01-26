@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './Calc.css'
 
-// @TODO Add clear button. Add back button.
+// @TODO Add decimals support.
 
 const PLUS = "PLUS",
       MULTIPLY = "MULTIPLY",
