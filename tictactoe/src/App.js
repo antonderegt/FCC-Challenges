@@ -9,13 +9,12 @@ class App extends Component {
     super(props)
     this.state = {
       clicked: [
-        [null,null,null],
-        [null,null,null],
-        [null,null,null]
+        null,null,null,null,null,null,null,null,null
       ],
       player: X,
       winsByX: 0,
       winsByO: 0,
+      draw: 0,
       timerRunning: false
     }
   }
@@ -23,8 +22,8 @@ class App extends Component {
   handleClick(square) {
     if(this.state.timerRunning === false) {
       let newClicked = this.state.clicked
-      if(newClicked[square[0]][square[1]] === null) {
-        newClicked[square[0]][square[1]] = this.state.player
+      if(newClicked[square] === null) {
+        newClicked[square] = this.state.player
         this.setState({
           clicked: newClicked
         })
@@ -37,33 +36,33 @@ class App extends Component {
             player: X
           })
         }
-        this.checkWinner()
+        this.score()
       }
     }
   }
 
-  winner() {
+  checkWinner() {
     let grid = this.state.clicked
     // Horizontal Rows
-    if(grid[0][0] === this.state.player && grid[0][0] === grid[0][1] && grid[0][1] === grid[0][2]) {
+    if(grid[0] === this.state.player && grid[0] === grid[1] && grid[1] === grid[2]) {
       return this.state.player
-    } else if(grid[1][0] === this.state.player && grid[1][0] === grid[1][1] && grid[1][1] === grid[1][2]) {
+    } else if(grid[3] === this.state.player && grid[3] === grid[4] && grid[4] === grid[5]) {
       return this.state.player
-    } else if(grid[2][0] === this.state.player && grid[2][0] === grid[2][1] && grid[2][1] === grid[2][2]) {
+    } else if(grid[6] === this.state.player && grid[6] === grid[7] && grid[7] === grid[8]) {
       return this.state.player
     }
     // Vertical Rows
-    else if(grid[0][0] === this.state.player && grid[0][0] === grid[1][0] && grid[1][0] === grid[2][0]) {
+    else if(grid[0] === this.state.player && grid[0] === grid[3] && grid[3] === grid[6]) {
       return this.state.player
-    } else if(grid[0][1] === this.state.player && grid[0][1] === grid[1][1] && grid[1][1] === grid[2][1]) {
+    } else if(grid[1] === this.state.player && grid[1] === grid[4] && grid[4] === grid[7]) {
       return this.state.player
-    } else if(grid[0][2] === this.state.player && grid[0][2] === grid[1][2] && grid[1][2] === grid[2][2]) {
+    } else if(grid[2] === this.state.player && grid[2] === grid[5] && grid[5] === grid[8]) {
       return this.state.player
     }
     // Diagonal Rows
-    else if(grid[0][0] === this.state.player && grid[0][0] === grid[1][1] && grid[1][1] === grid[2][2]) {
+    else if(grid[0] === this.state.player && grid[0] === grid[4] && grid[4] === grid[8]) {
       return this.state.player
-    } else if(grid[0][2] === this.state.player && grid[0][2] === grid[1][1] && grid[1][1] === grid[2][0]) {
+    } else if(grid[6] === this.state.player && grid[6] === grid[4] && grid[4] === grid[2]) {
       return this.state.player
     }
     // No winner
@@ -72,8 +71,12 @@ class App extends Component {
     }
   }
 
-  checkWinner() {
-    let winner = this.winner()
+  checkDraw() {
+    return this.state.clicked.every(square => square !== null)
+  }
+
+  score() {
+    let winner = this.checkWinner()
     if(winner !== false) {
       if(winner === X) {
         this.setState({
@@ -90,20 +93,26 @@ class App extends Component {
       setTimeout(() => {
         this.restart()
       }, 3000)
+    } else {
+      if(this.checkDraw()) {
+        this.setState({
+          draw: this.state.draw + 1
+        })
+        setTimeout(() => {
+          this.restart()
+        }, 3000)
+      }
     }
   }
 
   restart() {
     this.setState({
       clicked: [
-        [null,null,null],
-        [null,null,null],
-        [null,null,null]
+        null,null,null, null,null,null, null,null,null
       ],
       player: X,
       timerRunning: false
     })
-
   }
   render() {
     return (
@@ -112,25 +121,28 @@ class App extends Component {
           <h1>TicTacToe</h1>
         </div>
         <div className="flexRow">
-          <div className="square" onClick={() => {this.handleClick([0,0])}}><h1>{this.state.clicked[0][0]}</h1></div>
-          <div className="square" onClick={() => {this.handleClick([0,1])}}><h1>{this.state.clicked[0][1]}</h1></div>
-          <div className="square" onClick={() => {this.handleClick([0,2])}}><h1>{this.state.clicked[0][2]}</h1></div>
+          <div className="square" onClick={() => {this.handleClick(0)}}><h1>{this.state.clicked[0]}</h1></div>
+          <div className="square" onClick={() => {this.handleClick(1)}}><h1>{this.state.clicked[1]}</h1></div>
+          <div className="square" onClick={() => {this.handleClick(2)}}><h1>{this.state.clicked[2]}</h1></div>
         </div>
         <div className="flexRow">
-          <div className="square" onClick={() => {this.handleClick([1,0])}}><h1>{this.state.clicked[1][0]}</h1></div>
-          <div className="square" onClick={() => {this.handleClick([1,1])}}><h1>{this.state.clicked[1][1]}</h1></div>
-          <div className="square" onClick={() => {this.handleClick([1,2])}}><h1>{this.state.clicked[1][2]}</h1></div>
+          <div className="square" onClick={() => {this.handleClick(3)}}><h1>{this.state.clicked[3]}</h1></div>
+          <div className="square" onClick={() => {this.handleClick(4)}}><h1>{this.state.clicked[4]}</h1></div>
+          <div className="square" onClick={() => {this.handleClick(5)}}><h1>{this.state.clicked[5]}</h1></div>
         </div>
         <div className="flexRow">
-          <div className="square" onClick={() => {this.handleClick([2,0])}}><h1>{this.state.clicked[2][0]}</h1></div>
-          <div className="square" onClick={() => {this.handleClick([2,1])}}><h1>{this.state.clicked[2][1]}</h1></div>
-          <div className="square" onClick={() => {this.handleClick([2,2])}}><h1>{this.state.clicked[2][2]}</h1></div>
+          <div className="square" onClick={() => {this.handleClick(6)}}><h1>{this.state.clicked[6]}</h1></div>
+          <div className="square" onClick={() => {this.handleClick(7)}}><h1>{this.state.clicked[7]}</h1></div>
+          <div className="square" onClick={() => {this.handleClick(8)}}><h1>{this.state.clicked[8]}</h1></div>
         </div>
         <div className="flexRow">
           <h3>Wins by X: {this.state.winsByX}</h3>
         </div>
         <div className="flexRow">
           <h3>Wins by O: {this.state.winsByO}</h3>
+        </div>
+        <div className="flexRow">
+          <h3>Draws: {this.state.draw}</h3>
         </div>
       </div>
     );
