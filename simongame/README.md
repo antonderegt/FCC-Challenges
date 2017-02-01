@@ -1,13 +1,11 @@
-# React Router [![Travis][build-badge]][build] [![npm package][npm-badge]][npm]
+# Simon Game [![Travis][build-badge]][build]
 
 <img src="/simongame/public/images/logo.PNG" height="150"/>
 
-React Router is a complete routing library for [React](https://facebook.github.io/react).
-
 React Router keeps your UI in sync with the URL. It has a simple API with powerful features like lazy code loading, dynamic route matching, and location transition handling built right in. Make the URL your first thought, not an after-thought.
 
-[![Codecov][codecov-badge]][codecov]
-[![Discord][discord-badge]][discord]
+<!-- [![Codecov][codecov-badge]][codecov]
+[![Discord][discord-badge]][discord] -->
 
 
 ### Docs & Help
@@ -140,8 +138,8 @@ Also, thanks to [BrowserStack](https://www.browserstack.com/) for providing the 
 [build-badge]: https://travis-ci.org/antonderegt/fcc.svg?branch=master
 [build]: https://travis-ci.org/antonderegt/fcc
 
-[npm-badge]: https://img.shields.io/npm/v/react-router.svg?style=flat-square
-[npm]: https://www.npmjs.org/package/react-router
+<!-- [npm-badge]: https://img.shields.io/npm/v/react-router.svg?style=flat-square
+[npm]: https://www.npmjs.org/package/react-router -->
 
 [codecov-badge]: https://img.shields.io/codecov/c/github/ReactTraining/react-router/master.svg?style=flat-square
 [codecov]: https://codecov.io/gh/ReactTraining/react-router
