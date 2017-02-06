@@ -20,7 +20,7 @@ import BookIcon from 'material-ui/svg-icons/communication/import-contacts'
 import AboutIcon from 'material-ui/svg-icons/social/person'
 
 // import FloatingActionButton from 'material-ui/FloatingActionButton';
-import ContentAdd from 'material-ui/svg-icons/content/add'
+// import ContentAdd from 'material-ui/svg-icons/content/add'
 
 import Portfolio from './Portfolio'
 import Ebooks from './Ebooks'

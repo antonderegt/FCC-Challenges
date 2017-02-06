@@ -1,7 +1,13 @@
-import React from 'react';
-import { GridList, GridTile } from 'material-ui/GridList'
+import React, { Component } from 'react'
+// import { GridList, GridTile } from 'material-ui/GridList'
 import IconButton from 'material-ui/IconButton'
-import Subheader from 'material-ui/Subheader'
+// import Subheader from 'material-ui/Subheader'
+import PortfolioDetail from './Portfolio-detail'
+import ProgrammeBooklet from './projects/ProgrammeBooklet'
+import FCCChallenges from './projects/FCCChallenges'
+import DaysOfCode from './projects/DaysOfCode'
+import NuclearCalculator from './projects/NuclearCalculator'
+import TalkAbout from './projects/TalkAbout'
 
 const styles = {
   root: {
@@ -13,6 +19,11 @@ const styles = {
     width: 500,
     height: 450,
     overFlowY: 'auto'
+  },
+  FABStyle: {
+    position: 'fixed',
+    bottom: 25,
+    right: 30,
   }
 }
 
@@ -49,22 +60,53 @@ const tilesData = [
   }
 ]
 
-const Portfolio = () => (
-  <div style={styles.root}>
-    <GridList cellHeight={180} style={styles.gridList}>
-      <Subheader>List of recent projects</Subheader>
-      {tilesData.map(tile => (
-        <GridTile
-          key={tile.img}
-          title={tile.title}
-          subtitle={<span>by <b>{tile.author}</b></span>}
-          onTouchTap={() => {window.open(tile.url)}}
-        >
-          <img src={tile.img} />
-        </GridTile>
-      ))}
-    </GridList>
-  </div>
-)
 
-export default Portfolio;
+
+class Portfolio extends Component {
+  constructor(props, context) {
+    super(props, context);
+    this.state = {
+      page: 'Portfolio'
+    }
+  }
+
+  setPage(page) {
+    this.setState({
+      page
+    })
+  }
+
+  showPage(page) {
+    switch (page) {
+      case 'Portfolio':
+        return <PortfolioDetail styles={styles} tilesData={tilesData} onTouchTap={(page) => this.setPage(page)}/>
+        break;
+      case 'Programme Booklet':
+        return <ProgrammeBooklet FABStyle={styles.FABStyle} onTouchTap={() => this.setPage('Portfolio')}/>
+        break;
+      case 'FCC-Challenges':
+        return <FCCChallenges FABStyle={styles.FABStyle} onTouchTap={() => this.setPage('Portfolio')}/>
+        break;
+      case '#100DaysOfCode':
+        return <DaysOfCode FABStyle={styles.FABStyle} onTouchTap={() => this.setPage('Portfolio')}/>
+        break;
+      case 'Nuclear Calculator':
+        return <NuclearCalculator FABStyle={styles.FABStyle} onTouchTap={() => this.setPage('Portfolio')}/>
+        break;
+      case 'TalkAbout':
+        return <TalkAbout FABStyle={styles.FABStyle} onTouchTap={() => this.setPage('Portfolio')}/>
+        break;
+      default:
+        <PortfolioDetail styles={styles} tilesData={tilesData} onTouchTap={() => this.setPage()}/>
+    }
+  }
+  render() {
+    return (
+      <div style={styles.root}>
+        {this.showPage(this.state.page)}
+      </div>
+    )
+  }
+}
+
+export default Portfolio
