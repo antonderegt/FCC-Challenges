@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import './App.css'
+import PlayingField from './playingField'
+import SelectXO from './selectXO'
 
 const X = "X",
       O = "O"
@@ -15,7 +17,8 @@ class App extends Component {
       winsByX: 0,
       winsByO: 0,
       draw: 0,
-      timerRunning: false
+      timerRunning: false,
+      selectedPlayer: 0
     }
   }
 
@@ -28,9 +31,7 @@ class App extends Component {
           clicked: newClicked
         })
         if (this.state.player === X) {
-          this.setState({
-            player: O
-          })
+          this.ai()
         } else {
           this.setState({
             player: X
@@ -41,29 +42,63 @@ class App extends Component {
     }
   }
 
+  ai() {
+    this.setState({
+      player: O
+    })
+    setTimeout(() => {
+      this.handleClick(this.state.clicked.indexOf(null))
+    }, 400)
+  }
+
+  selectPlayer(selectedPlayer) {
+    this.setState({
+      selectedPlayer
+    })
+  }
+
   checkWinner() {
     let grid = this.state.clicked
     // Horizontal Rows
-    if(grid[0] === this.state.player && grid[0] === grid[1] && grid[1] === grid[2]) {
-      return this.state.player
-    } else if(grid[3] === this.state.player && grid[3] === grid[4] && grid[4] === grid[5]) {
-      return this.state.player
-    } else if(grid[6] === this.state.player && grid[6] === grid[7] && grid[7] === grid[8]) {
-      return this.state.player
+    if(grid[0] === X && grid[1] === X && grid[2] === X) {
+      return X
+    } else if(grid[3] === X && grid[4] === X && grid[5] === X) {
+      return X
+    } else if(grid[6] === X && grid[7] === X && grid[8] === X) {
+      return X
+    }
+    if(grid[0] === O && grid[1] === O && grid[2] === O) {
+      return O
+    } else if(grid[3] === O && grid[4] === O && grid[5] === O) {
+      return O
+    } else if(grid[6] === O && grid[7] === O && grid[8] === O) {
+      return O
     }
     // Vertical Rows
-    else if(grid[0] === this.state.player && grid[0] === grid[3] && grid[3] === grid[6]) {
-      return this.state.player
-    } else if(grid[1] === this.state.player && grid[1] === grid[4] && grid[4] === grid[7]) {
-      return this.state.player
-    } else if(grid[2] === this.state.player && grid[2] === grid[5] && grid[5] === grid[8]) {
-      return this.state.player
+    if(grid[0] === X && grid[3] === X && grid[6] === X) {
+      return X
+    } else if(grid[1] === X && grid[4] === X && grid[7] === X) {
+      return X
+    } else if(grid[2] === X && grid[5] === X && grid[8] === X) {
+      return X
+    }
+    if(grid[0] === O && grid[3] === O && grid[6] === O) {
+      return O
+    } else if(grid[1] === O && grid[4] === O && grid[7] === O) {
+      return O
+    } else if(grid[2] === O && grid[5] === O && grid[8] === O) {
+      return O
     }
     // Diagonal Rows
-    else if(grid[0] === this.state.player && grid[0] === grid[4] && grid[4] === grid[8]) {
-      return this.state.player
-    } else if(grid[6] === this.state.player && grid[6] === grid[4] && grid[4] === grid[2]) {
-      return this.state.player
+    if(grid[0] === X && grid[4] === X && grid[8] === X) {
+      return X
+    } else if(grid[2] === X && grid[4] === X && grid[6] === X) {
+      return X
+    }
+    if(grid[0] === O && grid[4] === O && grid[8] === O) {
+      return O
+    } else if(grid[2] === O && grid[4] === O && grid[6] === O) {
+      return O
     }
     // No winner
     else {
@@ -106,44 +141,60 @@ class App extends Component {
   }
 
   restart() {
-    this.setState({
-      clicked: [
-        null,null,null, null,null,null, null,null,null
-      ],
-      player: X,
-      timerRunning: false
-    })
+    if(this.state.selectedPlayer === X) {
+      this.setState({
+        clicked: [
+          null,null,null, null,null,null, null,null,null
+        ],
+        player: X,
+        timerRunning: false
+      })
+    } else {
+      this.setState({
+        clicked: [
+          null,null,null, null,null,null, null,null,null
+        ],
+        player: X,
+        timerRunning: false
+      })
+      // Computer has first move
+      this.ai()
+    }
   }
+
+  checkPlayerSelected() {
+    switch (this.state.selectedPlayer) {
+      case 0:
+        return <SelectXO selectPlayer={(player) => this.selectPlayer(player)} ai={() => this.ai()} />
+        break;
+      case 'O':
+      case 'X':
+        return <PlayingField
+          handleClick={(player) => this.handleClick(player)}
+          clicked={this.state.clicked}
+          winsByX={this.state.winsByX}
+          winsByO={this.state.winsByO}
+          draw={this.state.draw}
+          />
+        break;
+      default:
+        return <PlayingField
+          handleClick={(player) => this.handleClick(player)}
+          clicked={this.state.clicked}
+          winsByX={this.state.winsByX}
+          winsByO={this.state.winsByO}
+          draw={this.state.draw}
+          />
+    }
+  }
+
   render() {
     return (
       <div className="flexContainer">
         <div className="flexRow">
           <h1>TicTacToe</h1>
         </div>
-        <div className="flexRow">
-          <div className="square" onClick={() => {this.handleClick(0)}}><h1>{this.state.clicked[0]}</h1></div>
-          <div className="square" onClick={() => {this.handleClick(1)}}><h1>{this.state.clicked[1]}</h1></div>
-          <div className="square" onClick={() => {this.handleClick(2)}}><h1>{this.state.clicked[2]}</h1></div>
-        </div>
-        <div className="flexRow">
-          <div className="square" onClick={() => {this.handleClick(3)}}><h1>{this.state.clicked[3]}</h1></div>
-          <div className="square" onClick={() => {this.handleClick(4)}}><h1>{this.state.clicked[4]}</h1></div>
-          <div className="square" onClick={() => {this.handleClick(5)}}><h1>{this.state.clicked[5]}</h1></div>
-        </div>
-        <div className="flexRow">
-          <div className="square" onClick={() => {this.handleClick(6)}}><h1>{this.state.clicked[6]}</h1></div>
-          <div className="square" onClick={() => {this.handleClick(7)}}><h1>{this.state.clicked[7]}</h1></div>
-          <div className="square" onClick={() => {this.handleClick(8)}}><h1>{this.state.clicked[8]}</h1></div>
-        </div>
-        <div className="flexRow">
-          <h3>Wins by X: {this.state.winsByX}</h3>
-        </div>
-        <div className="flexRow">
-          <h3>Wins by O: {this.state.winsByO}</h3>
-        </div>
-        <div className="flexRow">
-          <h3>Draws: {this.state.draw}</h3>
-        </div>
+        {this.checkPlayerSelected()}
       </div>
     );
   }
