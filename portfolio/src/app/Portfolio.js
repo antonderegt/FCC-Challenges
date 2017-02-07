@@ -112,7 +112,7 @@ class Portfolio extends Component {
         return <TalkAbout styles={styles} onTouchTap={() => this.setPage('Portfolio')}/>
         break;
       default:
-        <PortfolioDetail styles={styles} tilesData={tilesData} onTouchTap={() => this.setPage()}/>
+        return <PortfolioDetail styles={styles} tilesData={tilesData} onTouchTap={() => this.setPage()}/>
     }
   }
   render() {
