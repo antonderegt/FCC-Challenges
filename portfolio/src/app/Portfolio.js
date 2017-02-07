@@ -12,15 +12,10 @@ const styles = {
   root: {
     display: 'flex',
     flexWrap: 'wrap',
-    justifyContent: 'center',
+    justifyContent: 'center'
   },
-  cont: {
+  container: {
     maxWidth: 400
-  },
-  gridList: {
-    width: 500,
-    height: 450,
-    overFlowY: 'auto'
   },
   paper: {
     height: 'auto',
@@ -123,7 +118,7 @@ class Portfolio extends Component {
   render() {
     return (
       <div style={styles.root}>
-        <div style={styles.cont}>
+        <div style={styles.container}>
           {this.showPage(this.state.page)}
         </div>
       </div>

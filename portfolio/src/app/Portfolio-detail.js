@@ -4,7 +4,7 @@ import Subheader from 'material-ui/Subheader'
 
 const PortfolioDetail = (props) => (
   <div style={props.styles.root}>
-    <GridList cellHeight={180} style={props.styles.gridList}>
+    <GridList cellHeight={180}>
       <Subheader>Click on a project to get detailed information</Subheader>
       {props.tilesData.map(tile => (
         <GridTile
