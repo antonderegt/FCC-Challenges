@@ -1,29 +1,42 @@
 import React, { Component } from 'react'
-// import { GridList, GridTile } from 'material-ui/GridList'
 import IconButton from 'material-ui/IconButton'
-// import Subheader from 'material-ui/Subheader'
 import PortfolioDetail from './Portfolio-detail'
 import ProgrammeBooklet from './projects/ProgrammeBooklet'
 import FCCChallenges from './projects/FCCChallenges'
 import DaysOfCode from './projects/DaysOfCode'
 import NuclearCalculator from './projects/NuclearCalculator'
 import TalkAbout from './projects/TalkAbout'
+import TwitterBot from './projects/TwitterBot'
 
 const styles = {
   root: {
     display: 'flex',
     flexWrap: 'wrap',
-    justifyContent: 'space-around'
+    justifyContent: 'center',
+  },
+  cont: {
+    maxWidth: 400
   },
   gridList: {
     width: 500,
     height: 450,
     overFlowY: 'auto'
   },
+  paper: {
+    height: 'auto',
+    maxWidth: 300,
+    margin: 10,
+    padding: 20,
+    textAlign: 'center',
+    display: 'inline-block'
+  },
   FABStyle: {
     position: 'fixed',
     bottom: 25,
     right: 30,
+  },
+  img: {
+    maxHeight: 300
   }
 }
 
@@ -47,20 +60,24 @@ const tilesData = [
     url: "https://github.com/antonderegt/100-days-of-code"
   },
   {
+    img: "images/bot.png",
+    title: "Twitter Bot",
+    author: "Anton de Regt",
+    url: "https://github.com/antonderegt/twitter-bot-bootstrap"
+  },
+  {
     img: "images/calculator.png",
     title: "Nuclear Calculator",
     author: "Anton de Regt",
     url: "https://antonderegt.github.io/fcc/calculator/build/index.html"
   },
-  {
-    img: "images/talkabout.png",
-    title: "TalkAbout",
-    author: "Anton de Regt",
-    url: "https://antonderegt.github.io/talkabout"
-  }
+  // {
+  //   img: "images/talkabout.png",
+  //   title: "TalkAbout",
+  //   author: "Anton de Regt",
+  //   url: "https://antonderegt.github.io/talkabout"
+  // }
 ]
-
-
 
 class Portfolio extends Component {
   constructor(props, context) {
@@ -82,19 +99,22 @@ class Portfolio extends Component {
         return <PortfolioDetail styles={styles} tilesData={tilesData} onTouchTap={(page) => this.setPage(page)}/>
         break;
       case 'Programme Booklet':
-        return <ProgrammeBooklet FABStyle={styles.FABStyle} onTouchTap={() => this.setPage('Portfolio')}/>
+        return <ProgrammeBooklet styles={styles} onTouchTap={() => this.setPage('Portfolio')}/>
         break;
       case 'FCC-Challenges':
-        return <FCCChallenges FABStyle={styles.FABStyle} onTouchTap={() => this.setPage('Portfolio')}/>
+        return <FCCChallenges styles={styles} onTouchTap={() => this.setPage('Portfolio')}/>
+        break;
+      case 'Twitter Bot':
+        return <TwitterBot styles={styles} onTouchTap={() => this.setPage('Portfolio')}/>
         break;
       case '#100DaysOfCode':
-        return <DaysOfCode FABStyle={styles.FABStyle} onTouchTap={() => this.setPage('Portfolio')}/>
+        return <DaysOfCode styles={styles} onTouchTap={() => this.setPage('Portfolio')}/>
         break;
       case 'Nuclear Calculator':
-        return <NuclearCalculator FABStyle={styles.FABStyle} onTouchTap={() => this.setPage('Portfolio')}/>
+        return <NuclearCalculator styles={styles} onTouchTap={() => this.setPage('Portfolio')}/>
         break;
       case 'TalkAbout':
-        return <TalkAbout FABStyle={styles.FABStyle} onTouchTap={() => this.setPage('Portfolio')}/>
+        return <TalkAbout styles={styles} onTouchTap={() => this.setPage('Portfolio')}/>
         break;
       default:
         <PortfolioDetail styles={styles} tilesData={tilesData} onTouchTap={() => this.setPage()}/>
@@ -103,7 +123,9 @@ class Portfolio extends Component {
   render() {
     return (
       <div style={styles.root}>
-        {this.showPage(this.state.page)}
+        <div style={styles.cont}>
+          {this.showPage(this.state.page)}
+        </div>
       </div>
     )
   }
