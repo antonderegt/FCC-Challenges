@@ -28,15 +28,42 @@ body {
   margin: 20px;
 }
 
+.square.green {
+  background-color: #1FDE91;
+}
+.square.green:active {
+    background-color: green;
+}
+.square.green.activated {
+  background-color: green;
+}
+
 .square.red {
   background-color: #D31B33;
 }
+.square.red:active {
+    background-color: red;
+}
+.square.red.activated {
+  background-color: red;
+}
+
 .square.yellow {
   background-color: #FDF06F;
 }
+.square.yellow:active {
+    background-color: yellow;
+}
+.square.yellow.activated {
+  background-color: yellow;
+}
+
 .square.blue {
   background-color: #2A4ED1;
 }
-.square.green {
-  background-color: #1FDE91;
+.square.blue:active {
+    background-color: blue;
+}
+.square.blue.activated {
+  background-color: blue;
 }
