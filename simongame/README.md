@@ -1,4 +1,4 @@
-# [Portfolio](https://ditisanton.nl) [![Travis][build-badge]][build]
+# [Simon Game](https://ditisanton.nl) [![Travis][build-badge]][build]
 
 <img src="/simongame/public/images/logo.PNG" height="150"/>
 
@@ -137,7 +137,7 @@ Also, thanks to [BrowserStack](https://www.browserstack.com/) for providing the 
  -->
 
 
- ## Main Tech Stack
+## Main Tech Stack
  * [React](https://facebook.github.io/react/)
 
 [build-badge]: https://travis-ci.org/antonderegt/fcc.svg?branch=master
