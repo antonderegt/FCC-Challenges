@@ -2,14 +2,29 @@
 
 Here you can find all the projects I did for [FCC](https://www.freecodecamp.com/).
 
-## Advanced Front End Development Projects
-* [Nuclear Calculator](https://antonderegt.github.io/fcc/calculator/build/index.html)
-* [Reactive Pomodoro](https://antonderegt.github.io/fcc/pomodoro/build/index.html)
-* [TicTacToe](https://antonderegt.github.io/fcc/tictactoe/build/index.html)
+## Front End
+### Basic
+* [Tribute to Ada Lovelace](https://github.com/antonderegt/fcc/tree/master/frontend/basic/tribute)
+* [Portfolio](https://github.com/antonderegt/fcc/tree/master/frontend/basic/portfolio)
 
-## React Projects
-* [Camper Leaderboard](https://antonderegt.github.io/fcc/leaderboard/src/index.html)
+### Intermediate
+* [Random Quote Generator](https://github.com/antonderegt/fcc/tree/master/frontend/intermediate/quote)
+* [Local Weather](https://github.com/antonderegt/fcc/tree/master/frontend/intermediate/weather)
+* [Wikipedia Viewer](https://github.com/antonderegt/fcc/tree/master/frontend/intermediate/wikipedia)
+* [Twitch TV](https://github.com/antonderegt/fcc/tree/master/frontend/intermediate/twitch)
 
+### Advanced
+* [Nuclear Calculator](https://github.com/antonderegt/fcc/tree/master/frontend/advanced/calculator)
+* [Reactive Pomodoro](https://github.com/antonderegt/fcc/tree/master/frontend/advanced/pomodoro)
+* [TicTacToe](https://github.com/antonderegt/fcc/tree/master/frontend/advanced/tictactoe)
+* [Simon Game](https://github.com/antonderegt/fcc/tree/master/frontend/advanced/simongame)
+
+## Data Visualization
+### React
+* [Camper Leaderboard](https://github.com/antonderegt/fcc/tree/master/datavisualization/react/leaderboard)
+
+## Back End
+* Nothing yet...
 
 ## Tech Used Throughout the Projects
 * [React](https://facebook.github.io/react/)
