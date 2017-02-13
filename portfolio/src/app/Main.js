@@ -62,10 +62,10 @@ class Main extends Component {
       case 'Portfolio':
         return <Portfolio/>
         break;
-      case 'About':
+      case 'About Me':
         return <About/>
         break;
-      case 'Contact':
+      case 'Get In Touch':
         return <Contact/>
         break;
       default:
