@@ -1,13 +1,13 @@
-# Simon Game [![Travis][build-badge]][build]
+# [Portfolio](https://ditisanton.nl) [![Travis][build-badge]][build]
 
 <img src="/simongame/public/images/logo.PNG" height="150"/>
 
-React Router keeps your UI in sync with the URL. It has a simple API with powerful features like lazy code loading, dynamic route matching, and location transition handling built right in. Make the URL your first thought, not an after-thought.
+<!-- React Router keeps your UI in sync with the URL. It has a simple API with powerful features like lazy code loading, dynamic route matching, and location transition handling built right in. Make the URL your first thought, not an after-thought. -->
 
 <!-- [![Codecov][codecov-badge]][codecov]
 [![Discord][discord-badge]][discord] -->
 
-
+<!--
 ### Docs & Help
 
 - [Tutorial – do this first!](https://github.com/reactjs/react-router-tutorial)
@@ -134,6 +134,11 @@ React Router.
 React Router was initially inspired by Ember's fantastic router. Many thanks to the Ember team.
 
 Also, thanks to [BrowserStack](https://www.browserstack.com/) for providing the infrastructure that allows us to run our build in real browsers.
+ -->
+
+
+ ## Main Tech Stack
+ * [React](https://facebook.github.io/react/)
 
 [build-badge]: https://travis-ci.org/antonderegt/fcc.svg?branch=master
 [build]: https://travis-ci.org/antonderegt/fcc
