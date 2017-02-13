@@ -21,7 +21,11 @@ Here you can find all the projects I did for [FCC](https://www.freecodecamp.com/
 
 ## Data Visualization
 ### React
+* [Markdown Previewer](https://github.com/antonderegt/fcc/tree/master/datavisualization/react/markdown)
 * [Camper Leaderboard](https://github.com/antonderegt/fcc/tree/master/datavisualization/react/leaderboard)
+<!-- * [Recipe Box](https://github.com/antonderegt/fcc/tree/master/datavisualization/react/recipe)
+* [Game of Life](https://github.com/antonderegt/fcc/tree/master/datavisualization/react/gof)
+* [Dungeon Crawloer](https://github.com/antonderegt/fcc/tree/master/datavisualization/react/dungeon) -->
 
 ## Back End
 * Nothing yet...
