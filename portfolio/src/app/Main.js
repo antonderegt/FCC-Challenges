@@ -97,14 +97,14 @@ class Main extends Component {
               />
 
               <MenuItem
-                onTouchTap={() => {this.pageSwitcher('About')}}
-                primaryText="About"
+                onTouchTap={() => {this.pageSwitcher('About Me')}}
+                primaryText="About Me"
                 leftIcon={<AboutIcon />}
               />
 
               <MenuItem
-                onTouchTap={() => {this.pageSwitcher('Contact')}}
-                primaryText="Contact"
+                onTouchTap={() => {this.pageSwitcher('Get In Touch')}}
+                primaryText="Get In Touch"
                 leftIcon={<ContactIcon />}
               />
 
