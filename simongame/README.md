@@ -1,4 +1,4 @@
-# [Simon Game](https://ditisanton.nl) [![Travis][build-badge]][build]
+# [Simon Game](https://antonderegt.github.io/fcc/simongame/build/index.html) [![Travis][build-badge]][build]
 
 <img src="/simongame/public/images/logo.PNG" height="150"/>
 
