@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="theme-color" content="#189BA3">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Random Quote Machine</title>
+  <link rel="stylesheet" type="text/css" href="./styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+</head>
+<body>
+  <script type="text/javascript" src="./scripts.js"></script>
+  <div class="container">
+  	<h1 class="text-primary text-center">Wiki Viewer</h1>
+
+  	<!--  Main Div	 -->
+  	<div class="col-md-4 col-md-offset-4">
+  		<!-- Input field	 -->
+  		<div class="col-md-12">
+  			<input id="tfSearch" type="text" name="query"></input>
+  		</div>
+
+  		<!-- 	Search Button	 -->
+  		<div class="col-md-6">
+  			<button id="btnSearch" class="btn">
+  				Search Article
+  			</button>
+  		</div>
+
+  		<!-- Button Random Article	 -->
+  		<div class="col-md-6">
+  			<a href="https://en.wikipedia.org/wiki/Special:Random" target="_blank">
+  			<button id="btnRandom" class="btn btn-primary pull-right">
+  				Random Article
+  			</button>
+  			</a>
+  		</div>
+
+  <!-- Results Panel -->
+  		<div id="pnlResults" class="panel panel-default col-md-12">
+  		</div>
+  	</div>
+
+
+  <!-- Container Closer -->
+  </div>
+
+</body>
+</html>

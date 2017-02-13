@@ -1,0 +1,12 @@
+body {
+	margin: 60px;
+}
+
+#pnlResults {
+	margin-top: 20px;
+}
+
+#tfSearch {
+	margin-bottom: 20px;
+	width: 100%;
+}

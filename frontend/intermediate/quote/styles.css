@@ -1,0 +1,9 @@
+body {
+	margin: 60px;
+	background-color: brown;
+}
+
+#divQuote {
+	background-color: white;
+	padding-bottom: 15px;
+}
