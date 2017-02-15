@@ -1,7 +1,8 @@
-export const addRecipe = (item) => {
-  console.log('adding item', item)
+export const addRecipe = (title, ingredients) => {
+  console.log('adding item', title, ingredients)
   return {
     type: 'add',
-    item
+    title,
+    ingredients
   }
 }
