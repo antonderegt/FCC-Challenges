@@ -1,5 +1,5 @@
 # [Recipe Box](https://antonderegt.github.io/fcc/datavisualization/react/recipebox/build/)
-<img src="readme_media/recipe-box.png" width="400"/>
+<img src="readme_media/recipebox.png" width="400"/>
 
 A Flask application template with the boilerplate code already done for you.
 
@@ -25,7 +25,7 @@ Adding a recipe:
 
 Editing a recipe:
 
-![editing](readme_media/editingRecipe.gif "editing")
+![editing](readme_media/edittingRecipe.gif "editing")
 
 Removing a recipe:
 
