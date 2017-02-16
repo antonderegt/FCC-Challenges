@@ -17,7 +17,7 @@ A Flask application template with the boilerplate code already done for you.
 
 Home Page:
 
-![home](readme_media/home.gif "home")
+![home](readme_media/homePage.gif "home")
 
 Adding a recipe:
 
