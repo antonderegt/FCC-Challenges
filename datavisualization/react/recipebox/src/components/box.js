@@ -9,11 +9,11 @@ class Box extends Component {
       recipes: this.getRecipeNames(),
       showModal: false,
       titleVal: '',
-      ingredientsVal: ''
+      ingredientsVal: '',
+      id: 12345
     }
   }
 
-// @TODO Let the reducer do this
   getRecipeNames() {
     if(localStorage.getItem('recipes') === null) {
       let recipes = [
@@ -21,8 +21,6 @@ class Box extends Component {
         {"name":"Bread", "ingredients": "Dough, Salt"},
       ]
       localStorage.setItem('recipes', JSON.stringify(recipes))
-      this.addButton('Spaghetti', "Meat, Pasta")
-      this.addButton('Bread', "Dough, Salt")
       return ['Spaghetti', 'Bread']
     } else {
       let localRecipes = JSON.parse(localStorage.getItem('recipes'))
@@ -33,18 +31,6 @@ class Box extends Component {
     }
   }
 
-  getIngredients(name) {
-    let localRecipes = JSON.parse(localStorage.getItem('recipes'))
-    let localIngredients = localRecipes.map(recipe => {
-      if(recipe.name === name) {
-        return recipe.ingredients
-      } else {
-        return ''
-      }
-    })
-    return localIngredients
-  }
-
   close() {
     this.setState({
       showModal: false,
@@ -53,17 +39,41 @@ class Box extends Component {
     })
   }
 
-  open(recipe = '', ingredients = '') {
+  open(recipe = '', ingredients = '', id = 12345) {
     this.setState({
       showModal: true,
       titleVal: recipe,
-      ingredientsVal: ingredients
+      ingredientsVal: ingredients,
+      id
     })
   }
 
-  save() {
+  delete() {
+    if(this.state.id !== 12345) {
+      let newList = JSON.parse(localStorage.getItem('recipes'))
+      newList.splice(this.state.id, 1);
+      localStorage.setItem('recipes', JSON.stringify(newList))
+    }
+    this.setState({
+      recipes: this.getRecipeNames()
+    })
     this.close()
-    this.addButton(this.state.titleVal, this.state.ingredientsVal)
+  }
+
+  save() {
+    let newList = JSON.parse(localStorage.getItem('recipes'))
+    if(this.state.id === 12345) {
+      newList.push({"name": this.state.titleVal, "ingredients": this.state.ingredientsVal})
+      localStorage.setItem('recipes', JSON.stringify(newList))
+    } else {
+      delete newList[this.state.id]
+      newList[this.state.id] = {"name": this.state.titleVal, "ingredients": this.state.ingredientsVal}
+      localStorage.setItem('recipes', JSON.stringify(newList))
+    }
+    this.setState({
+      recipes: this.getRecipeNames()
+    })
+    this.close()
   }
 
   getValidationState() {
@@ -85,16 +95,13 @@ class Box extends Component {
     )
   }
 
-  addButton(title, ingredients) {
-    this.props.addItem(title, ingredients)
-  }
-
   render() {
     const recipes = this.state.recipes.map((recipe, idx) => {
-      let ingredients = this.getIngredients(recipe)
+      let localRecipes = JSON.parse(localStorage.getItem('recipes'))
+      let ingredients = localRecipes[idx].ingredients
       return <li key={idx}><Button
         bsStyle="primary"
-        onClick={() => this.open(recipe, ingredients)}>Edit</Button>{recipe}</li>
+        onClick={() => this.open(recipe, ingredients, idx)}>Edit</Button>{recipe}</li>
     })
 
     return (
@@ -118,8 +125,9 @@ class Box extends Component {
           handleChange={e => this.handleChange(e, 'title')}
           handleChangeI={e => this.handleChange(e, 'ingredients')}
           getValidationState={() => this.getValidationState()}
-          close={() => this.close()}
+          delete={() => this.delete()}
           save={() => this.save()}
+          close={() => this.close()}
           />
 
       </div>

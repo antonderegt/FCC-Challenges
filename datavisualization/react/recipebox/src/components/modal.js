@@ -42,7 +42,7 @@ const ModalViewer = (props) => (
         </form>
     </Modal.Body>
     <Modal.Footer>
-      <Button bsStyle="danger" onClick={() => props.close()}>Close</Button>
+      <Button bsStyle="danger" onClick={() => props.delete()}>Delete</Button>
       <Button bsStyle="success" onClick={() => props.save()}>Save</Button>
     </Modal.Footer>
   </Modal>
