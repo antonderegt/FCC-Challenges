@@ -21,15 +21,15 @@ Home Page:
 
 Adding a recipe:
 
-<!-- ![adding](readme_media/adding.gif "adding") -->
+![adding](readme_media/addingRecipe.gif "adding")
 
 Editing a recipe:
 
-<!-- ![editing](readme_media/editing.gif "editing") -->
+![editing](readme_media/editingRecipe.gif "editing")
 
 Removing a recipe:
 
-<!-- ![removing](readme_media/removing.gif "removing") -->
+![removing](readme_media/removingRecipe.gif "removing")
 
 ## Setting up
 
