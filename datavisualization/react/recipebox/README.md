@@ -1,7 +1,7 @@
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 # [Recipe Box](https://antonderegt.github.io/fcc/datavisualization/react/recipebox/build/)
-<img src="readme_media/recipebox.png" width="400"/>
+<img src="readme_media/recipe-box.png" width="400"/>
 
 A Flask application template with the boilerplate code already done for you.
 
