@@ -1,5 +1,3 @@
-This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
-
 # [Recipe Box](https://antonderegt.github.io/fcc/datavisualization/react/recipebox/build/)
 <img src="readme_media/recipe-box.png" width="400"/>
 
@@ -61,6 +59,11 @@ $ yarn start
 $ yarn build
 ```
 Once the build finishes just open the index.html (with your browser) in the folder: build/
+
+## Main Tech Stack
+* [React](https://facebook.github.io/react/)
+* [Create React App](https://github.com/facebookincubator/create-react-app)
+* [React Bootstrap](https://react-bootstrap.github.io/)
 
 ## Contributing
 
