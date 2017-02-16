@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Button } from 'react-bootstrap'
+import { Button, Collapse, Well } from 'react-bootstrap'
 import ModalViewer from './modal'
 
 class Box extends Component {
@@ -95,44 +95,69 @@ class Box extends Component {
     )
   }
 
+  showDetails(recipe, ingredients) {
+    if(this.state.showT === recipe) {
+      this.setState({
+        showT: '',
+        showI: '',
+        open: false
+      })
+    } else {
+      this.setState({
+        showT: recipe,
+        showI: ingredients,
+        open: true
+      })
+    }
+  }
+
   render() {
     const recipes = this.state.recipes.map((recipe, idx) => {
       let localRecipes = JSON.parse(localStorage.getItem('recipes'))
       let ingredients = localRecipes[idx].ingredients
-      return <li key={idx}><Button
-        bsStyle="primary"
-        onClick={() => this.open(recipe, ingredients, idx)}>Edit</Button>{recipe}</li>
-    })
-
-    return (
-      <div>
-        <h2>Box</h2>
-        <ul>
-          {recipes}
-        </ul>
+      return <li onClick={()=> this.showDetails(recipe, ingredients)} key={idx}>
         <Button
           bsStyle="primary"
-          bsSize="large"
-          onClick={() => this.open()}
-          >
-          Add Recipe
-        </Button>
+          onClick={() => this.open(recipe, ingredients, idx)}>Edit
+        </Button> {recipe}</li>
+      })
+      const ingredients = <Collapse in={this.state.open}>
+        <div>
+          <Well style={{width: '90%'}}><h4>{this.state.showT}</h4>{this.state.showI}</Well>
+        </div>
+      </Collapse>
+      return (
+        <div>
+          <hr/>
+          <ul>
+            {recipes}
+          </ul>
+          <ul>
+            {ingredients}
+          </ul>
+          <Button
+            bsStyle="primary"
+            bsSize="large"
+            onClick={() => this.open()}
+            block>
+            Add Recipe
+          </Button>
 
-        <ModalViewer
-          showModal={this.state.showModal}
-          titleVal={this.state.titleVal}
-          ingredientsVal={this.state.ingredientsVal}
-          handleChange={e => this.handleChange(e, 'title')}
-          handleChangeI={e => this.handleChange(e, 'ingredients')}
-          getValidationState={() => this.getValidationState()}
-          delete={() => this.delete()}
-          save={() => this.save()}
-          close={() => this.close()}
-          />
-
-      </div>
-    )
+          <ModalViewer
+            showModal={this.state.showModal}
+            titleVal={this.state.titleVal}
+            ingredientsVal={this.state.ingredientsVal}
+            handleChange={e => this.handleChange(e, 'title')}
+            handleChangeI={e => this.handleChange(e, 'ingredients')}
+            getValidationState={() => this.getValidationState()}
+            delete={() => this.delete()}
+            save={() => this.save()}
+            close={() => this.close()}
+            />
+          <hr/>
+        </div>
+      )
+    }
   }
-}
 
-export default Box
+  export default Box

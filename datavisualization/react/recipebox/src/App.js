@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import logo from './logo.svg'
 import './App.css'
 import Recipes from './components/recipes'
 
@@ -8,10 +7,11 @@ class App extends Component {
     return (
       <div className="App">
         <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to Recipe Box</h2>
+          <h2>Recipe Box</h2>
         </div>
-        <Recipes />
+        <div className="Recipes">
+          <Recipes />
+        </div>
       </div>
     )
   }
