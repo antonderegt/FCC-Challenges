@@ -1,7 +1,7 @@
 # [Recipe Box](https://antonderegt.github.io/fcc/datavisualization/react/recipebox/build/)
 <img src="readme_media/recipebox.png" width="400"/>
 
-A Flask application template with the boilerplate code already done for you.
+A place to keep all of your recipes!
 
 
 **Check it out here [https://antonderegt.github.io/fcc/datavisualization/react/recipebox/build/](https://antonderegt.github.io/fcc/datavisualization/react/recipebox/build/).**
