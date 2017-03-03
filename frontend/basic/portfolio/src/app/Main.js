@@ -14,10 +14,12 @@ import ContactIcon from 'material-ui/svg-icons/action/perm-contact-calendar'
 import PortfolioIcon from 'material-ui/svg-icons/action/dashboard'
 import BookIcon from 'material-ui/svg-icons/communication/import-contacts'
 import AboutIcon from 'material-ui/svg-icons/social/person'
+import ServicesIcon from 'material-ui/svg-icons/action/shopping-cart'
 
 import Portfolio from './Portfolio'
 import About from './About'
 import Contact from './Contact'
+import Services from './Services'
 
 const styles = {
   container: {
@@ -62,6 +64,9 @@ class Main extends Component {
       case 'Portfolio':
         return <Portfolio/>
         break;
+      case 'Services':
+        return <Services/>
+        break;
       case 'About Me':
         return <About/>
         break;
@@ -94,6 +99,12 @@ class Main extends Component {
                 onTouchTap={() => {this.pageSwitcher('Portfolio')}}
                 primaryText="Portfolio"
                 leftIcon={<PortfolioIcon />}
+              />
+
+              <MenuItem
+                onTouchTap={() => {this.pageSwitcher('Services')}}
+                primaryText="Services"
+                leftIcon={<ServicesIcon />}
               />
 
               <MenuItem

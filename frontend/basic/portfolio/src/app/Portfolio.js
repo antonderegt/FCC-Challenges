@@ -7,6 +7,7 @@ import DaysOfCode from './projects/DaysOfCode'
 import NuclearCalculator from './projects/NuclearCalculator'
 import TalkAbout from './projects/TalkAbout'
 import TwitterBot from './projects/TwitterBot'
+import Design from './projects/Design'
 
 const styles = {
   root: {
@@ -19,11 +20,11 @@ const styles = {
   },
   paper: {
     height: 'auto',
-    maxWidth: 300,
-    margin: 10,
-    padding: 20,
+    width: 'auto',
+    padding: 30,
+    margin: 30,
     textAlign: 'center',
-    display: 'inline-block'
+    display: 'block',
   },
   FABStyle: {
     position: 'fixed',
@@ -31,7 +32,8 @@ const styles = {
     right: 30,
   },
   img: {
-    maxHeight: 300
+    maxHeight: 300,
+    maxWidth: '100%'
   }
 }
 
@@ -47,6 +49,12 @@ const tilesData = [
     title: "FCC-Challenges",
     author: "Anton de Regt",
     url: "https://antonderegt.github.io/fcc"
+  },
+  {
+    img: "images/csssvg.png",
+    title: "Design",
+    author: "Anton de Regt",
+    url: "https://codepen.io/antonderegt/full/qRwyNO/"
   },
   {
     img: "images/100.png",
@@ -65,7 +73,8 @@ const tilesData = [
     title: "Nuclear Calculator",
     author: "Anton de Regt",
     url: "https://antonderegt.github.io/fcc/calculator/build/index.html"
-  },
+  }
+  //,
   // {
   //   img: "images/talkabout.png",
   //   title: "TalkAbout",
@@ -111,6 +120,9 @@ class Portfolio extends Component {
       case 'TalkAbout':
         return <TalkAbout styles={styles} onTouchTap={() => this.setPage('Portfolio')}/>
         break;
+      case 'Design':
+        return <Design styles={styles} onTouchTap={() => this.setPage('Portfolio')}/>
+        break;
       default:
         return <PortfolioDetail styles={styles} tilesData={tilesData} onTouchTap={() => this.setPage()}/>
     }
@@ -118,9 +130,7 @@ class Portfolio extends Component {
   render() {
     return (
       <div style={styles.root}>
-        <div style={styles.container}>
           {this.showPage(this.state.page)}
-        </div>
       </div>
     )
   }
