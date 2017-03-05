@@ -1,4 +1,4 @@
-# [TicTacToe](https://antonderegt.github.io/fcc/tictactoe/build/index.html)
+# [Game Of Life](https://antonderegt.github.io/fcc/datavisualization/react/gameoflife/build/)
 
 Another [FCC](https://www.freecodecamp.com/) challenge.
 
