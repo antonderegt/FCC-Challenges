@@ -1,0 +1,33 @@
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+}
+
+p {
+  text-align: center;
+}
+
+.grid {
+  overflow: hidden;
+}
+
+.alive {
+  width: 20px;
+  height: 20px;
+  border: 1px solid black;
+  background: green;
+  float:left;
+}
+
+.dead {
+  width: 20px;
+  height: 20px;
+  border: 1px solid black;
+  background: red;
+  float:left;
+}
