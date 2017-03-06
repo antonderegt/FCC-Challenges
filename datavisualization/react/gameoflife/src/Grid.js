@@ -52,8 +52,14 @@ class App extends Component {
   clickHandler(id) {
     if(grid[id] === 'dead') {
       grid[id] = 'alive'
+      this.setState({
+        state: 'You revived: ' + id
+      })
     } else {
       grid[id] = 'dead'
+      this.setState({
+        state: 'You killed: ' + id
+      })
     }
     this.checkNeighbours(id, grid)
   }
