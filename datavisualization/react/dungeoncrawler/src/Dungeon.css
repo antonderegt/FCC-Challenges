@@ -1,0 +1,18 @@
+.dungeonContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.dungeon {
+  width: 600px;
+  height: 400px;
+  background: #01172F
+}
+
+
+
+/*Greenish #2E6171*/
+/*Tomato like #F26430*/
+/*Light Blue #274690*/
+/*Dark Blue #01172F*/
+/*Brown #4C212A*/
