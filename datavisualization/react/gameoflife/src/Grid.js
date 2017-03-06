@@ -1,35 +1,29 @@
 import React, { Component } from 'react';
 import './Grid.css';
 
+let grid = []
+let rowLength = 35
+let numberOfRows = 35
+let totalSquares = rowLength * numberOfRows
+
 class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      grid: this.initialStateRandom(),
-      rowLength: this.initialRowLength(),
-      numberOfRows: this.initialNumberOfRows(),
       state: 'Ready to get alive',
       generations: 0
     }
-  }
-  initialRowLength() {
-    return 20
-  }
-  initialNumberOfRows() {
-    return 20
+    grid = this.initialStateRandom()
   }
 
   clearBoard() {
     this.stop()
-    let rowLength = this.state.rowLength
-    let numberOfRows = this.state.numberOfRows
-    let numberOfSquares = rowLength * numberOfRows
     let clearedArray = []
-    for(let i = 0; i < numberOfSquares; i++) {
+    for(let i = 0; i < totalSquares; i++) {
       clearedArray.push('dead')
     }
+    grid = clearedArray
     this.setState({
-      grid: clearedArray,
       state: 'Board Cleared',
       generations: 0
     })
@@ -37,18 +31,15 @@ class App extends Component {
 
   newRandomGrid() {
     this.stop()
+    grid = this.initialStateRandom()
     this.setState({
-      grid: this.initialStateRandom(),
       generations: 0
     })
   }
 
   initialStateRandom() {
-    let rowLength = this.initialRowLength()
-    let numberOfRows = this.initialNumberOfRows()
-    let numberOfSquares = rowLength * numberOfRows
     let initialAray = []
-    for(let i = 0; i < numberOfSquares; i++) {
+    for(let i = 0; i < totalSquares; i++) {
       if(((Math.random() * 10) + 1) > 9){
         initialAray.push('alive')
       } else {
@@ -59,22 +50,15 @@ class App extends Component {
   }
 
   clickHandler(id) {
-    let grid = this.state.grid
     if(grid[id] === 'dead') {
       grid[id] = 'alive'
     } else {
       grid[id] = 'dead'
     }
-    this.setState({
-      grid
-    })
     this.checkNeighbours(id, grid)
   }
 
   checkNeighbours(id, grid) {
-    let rowLength = this.state.rowLength
-    let numberOfRows = this.state.numberOfRows
-    let totalSquares = numberOfRows * rowLength
     let neighbours = 0
 
     // Row above
@@ -111,7 +95,6 @@ class App extends Component {
   }
 
   checkAllIsDead() {
-    let grid = this.state.grid
     let dead = grid.every(el => el === 'dead')
     if(dead){
       this.setState({
@@ -129,24 +112,14 @@ class App extends Component {
       if(this.state.state === 'Stopped' || this.checkAllIsDead()) {
         clearInterval(x);
       }
-      this.state.grid.map((square, id) => {
-        let grid = this.state.grid
+      grid.map((square, id) => {
         let neighbours = this.checkNeighbours(id, grid)
         if(square === 'alive' && neighbours < 2) {
           grid[id] = 'dead'
-          this.setState({
-            grid
-          })
         } else if (square === 'alive' && neighbours > 3) {
           grid[id] = 'dead'
-          this.setState({
-            grid
-          })
         } else if (square === 'dead' && neighbours === 3) {
           grid[id] = 'alive'
-          this.setState({
-            grid
-          })
         }
         return grid
       })
@@ -163,26 +136,26 @@ class App extends Component {
   }
 
   render() {
-    const grid = this.state.grid.map((square, id) => {
+    const board = grid.map((square, id) => {
       let createSquare = <div key={id} className={square} onClick={() => this.clickHandler(id)}></div>
-      if((id + 1) % this.state.rowLength === 0) {
+      if((id + 1) % rowLength === 0) {
         createSquare = <div key={id} className="grid"><div className={square} onClick={() => this.clickHandler(id)}></div></div>
       }
       return createSquare
     })
     return (
       <div>
+        <p>Generations: {this.state.generations}</p>
+        <p>{this.state.state}</p>
         <div className="buttons">
           <button onClick={() => {this.tick()}}>Run</button>
           <button onClick={() => {this.stop()}}>Pause</button>
           <button onClick={() => {this.clearBoard()}}>Clear</button>
           <button onClick={() => {this.newRandomGrid()}}>Random Grid</button>
         </div>
-          <p>Generations: {this.state.generations}</p>
-          <h1>{this.state.state}</h1>
         <div className="container">
-          <div className="grid">
-            { grid }
+          <div className="grid gridBorder">
+            { board }
           </div>
         </div>
       </div>

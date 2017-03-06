@@ -1,3 +1,12 @@
+button {
+  width: 80px;
+  color: #2F6E7C;
+  background: #FCD7AD;
+  border: 1px solid #5296A5;
+  border-radius: 10px;
+  margin: 10px;
+}
+
 .container {
   display: flex;
   justify-content: center;
@@ -10,24 +19,37 @@
 
 p {
   text-align: center;
+  color: #2F6E7C;
 }
 
 .grid {
   overflow: hidden;
 }
 
+.gridBorder {
+   border: 7px solid #5296A5;
+   border-radius: 10px;
+   background: #5296A5;
+ }
+
 .alive {
-  width: 20px;
-  height: 20px;
+  width: 10px;
+  height: 10px;
   border: 1px solid black;
-  background: green;
+  background: #A57548;
   float:left;
+  border: 1px solid #5296A5;
+  border-radius: 3px;
+  margin: .5px;
 }
 
 .dead {
-  width: 20px;
-  height: 20px;
+  width: 10px;
+  height: 10px;
   border: 1px solid black;
-  background: red;
+  background: #FCD7AD;
   float:left;
+  border: 1px solid #5296A5;
+  border-radius: 3px;
+  margin: .5px;
 }
