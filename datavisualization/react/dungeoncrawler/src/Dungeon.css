@@ -1,15 +1,53 @@
-.dungeonContainer {
+.stats {
+  display: flex;
+  justify-content: space-around;
+}
+
+.container {
   display: flex;
   justify-content: center;
 }
 
-.dungeon {
-  width: 600px;
-  height: 400px;
-  background: #01172F
+.grid {
+  overflow: hidden;
 }
 
+.gridBorder {
+   border: 7px solid #01172F;
+   border-radius: 10px;
+   background: #01172F;
+ }
 
+ .square {
+   width: 10px;
+   height: 10px;
+   float:left;
+ }
+
+.player {
+  background: white;
+  border-radius: 50%;
+}
+
+.wall {
+  background: #274690;
+}
+
+.openSpace {
+  /*background: #2E6171;*/
+}
+
+.monster {
+  background: #F26430;
+}
+
+.item {
+  background: #4C212A;
+}
+
+.door {
+  background: #01172F;
+}
 
 /*Greenish #2E6171*/
 /*Tomato like #F26430*/

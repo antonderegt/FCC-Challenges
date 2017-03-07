@@ -3,6 +3,12 @@ h1 {
   color: #01172F;
 }
 
+p {
+  color: #2E6171;
+  font-weight: bold;
+  font-size: 20px;
+}
+
 body {
   background: #4C212A;
 }
