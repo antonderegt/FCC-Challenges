@@ -41,8 +41,12 @@
   background: #F26430;
 }
 
-.item {
+.weapon {
   background: #4C212A;
+}
+
+.health {
+  background: green;
 }
 
 .door {
