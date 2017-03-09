@@ -7,6 +7,7 @@ let numberOfRows = 40
 let totalSquares = rowLength * numberOfRows
 let dungeon = 1
 let monsterHealth = 10
+let bossHealth = 100
 let health = 100
 let life = true
 let attack = 5
@@ -22,13 +23,18 @@ class Dungeon extends Component {
     this.state = {
       playerAt: startSpot
     }
-    grid[this.state.playerAt] = 'square player'
     this.view(this.state.playerAt)
+    grid[this.state.playerAt] = 'square player'
   }
 
   view(currentSpot) {
     grid = grid.map((grid, id) => {
-      return grid + ' dark'
+      let temp = grid.split(' ')
+      if(temp[2] !== 'dark') {
+        return grid + ' dark'
+      } else {
+        return grid
+      }
     })
 
     for(let i = 0; i < 10; i++) {
@@ -129,12 +135,14 @@ class Dungeon extends Component {
     }
 
     // Drop random door
-    for(let i = 0; i < 1; i++) {
-      let randomNumber = Math.floor((Math.random() * totalSquares))
-      if(initialAray[randomNumber] !== 'square wall') {
-        initialAray[randomNumber] = 'square door'
-      } else {
-        i--
+    if(dungeon < 4) {
+      for(let i = 0; i < 20; i++) {
+        let randomNumber = Math.floor((Math.random() * totalSquares))
+        if(initialAray[randomNumber] !== 'square wall') {
+          initialAray[randomNumber] = 'square door'
+        } else {
+          i--
+        }
       }
     }
 
@@ -180,7 +188,7 @@ class Dungeon extends Component {
             attack = 40
             break;
           case 4:
-            weapon = 'Water Balloon'
+            weapon = 'Water Balloons'
             attack = 50
             break;
           default:
@@ -188,6 +196,8 @@ class Dungeon extends Component {
         return true
       case 'square monster':
         return this.fightMonster(gridNumber)
+      case 'square boss':
+        return this.fightBoss(gridNumber)
       case 'square door':
         return this.nextLevel()
       default:
@@ -195,38 +205,9 @@ class Dungeon extends Component {
     }
   }
 
-  nextLevel() {
-    grid = this.initialStateRandom()
-    this.setState({
-      playerAt: rowLength * 6 + 8
-    })
-    dungeon++
-    monsterHealth = 10 * dungeon
-    life = false
-    nextXp -= 50
-    grid[rowLength * 6 + 8] = 'square player'
-    return false
-  }
-
-  resetGame() {
-    grid = this.initialStateRandom()
-    this.setState({
-      playerAt: rowLength * 6 + 8
-    })
-    dungeon = 1
-    monsterHealth = 10
-    health = 100
-    life = false
-    attack = 5
-    level = 1
-    nextXp = 100
-    weapon = 'Knuckles'
-    grid[rowLength * 6 + 8] = 'square player'
-  }
-
   fightMonster(gridNumber) {
-    monsterHealth -= attack * 0.3 + level
-    health -= 2 * dungeon
+    monsterHealth -= attack * 0.45 + Math.floor(Math.random() * level)
+    health -= Math.floor(Math.random() * dungeon) + dungeon
     if(health <= 0) {
       alert('You died')
       this.resetGame()
@@ -242,6 +223,61 @@ class Dungeon extends Component {
     } else {
       return false
     }
+  }
+
+  fightBoss(gridNumber) {
+    bossHealth -= (10*(level-2)) + Math.floor(Math.random() * level)
+    health -= 15 + Math.floor(Math.random() * 5)
+    if(health <= 0) {
+      alert('You died')
+      this.resetGame()
+      return false
+    } else if(bossHealth <= 0) {
+      this.resetGame()
+      alert('You won!')
+      return true
+    } else {
+      return false
+    }
+  }
+
+  nextLevel() {
+    dungeon++
+    grid = this.initialStateRandom()
+    if(dungeon >= 4) {
+      // Drop The Boss
+      for(let i = 0; i < 1; i++) {
+        let randomNumber = Math.floor((Math.random() * totalSquares))
+        if(grid[randomNumber] !== 'square wall' && grid[randomNumber + 1] !== 'square wall' && grid[randomNumber + rowLength] !== 'square wall' && grid[randomNumber + 1 + rowLength] !== 'square wall') {
+          grid[randomNumber] = 'square boss'
+          grid[randomNumber + 1] = 'square boss'
+          grid[randomNumber + rowLength] = 'square boss'
+          grid[randomNumber + rowLength + 1] = 'square boss'
+        } else {
+          i--
+        }
+      }
+    }
+    monsterHealth = 10 * dungeon
+    life = false
+    nextXp -= 50
+    if(nextXp <= 0) {
+      level++
+      nextXp = 100 * level
+    }
+    return false
+  }
+
+  resetGame() {
+    dungeon = 1
+    grid = this.initialStateRandom()
+    monsterHealth = 10
+    health = 100
+    life = false
+    attack = 5
+    level = 1
+    nextXp = 100
+    weapon = 'Knuckles'
   }
 
   handleKeyDown (event) {
@@ -280,15 +316,18 @@ class Dungeon extends Component {
       default:
     }
 
-    this.view(currentPlace)
-
     if(life) {
       grid[currentPlace] = 'square openSpace'
       grid[nextPlace] = 'square player'
     } else {
       life = true
-      nextPlace = rowLength * 6 + 8
+      grid[currentPlace] = 'square openSpace'
+      nextPlace = this.emptySpot()
+      grid[nextPlace] = 'square player'
     }
+
+    this.view(nextPlace)
+
 
     this.setState({
       playerAt: nextPlace

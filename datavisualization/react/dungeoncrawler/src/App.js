@@ -7,6 +7,7 @@ class App extends Component {
     return (
       <div>
         <h1>Dungeon Crawler</h1>
+        <h3>Kill the Tomato Boss in dungeon 4</h3>
         <Dungeon />
       </div>
     );

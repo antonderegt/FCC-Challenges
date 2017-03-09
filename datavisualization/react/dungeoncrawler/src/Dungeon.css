@@ -33,12 +33,12 @@
   background: #274690;
 }
 
-.openSpace {
-  /*background: #2E6171;*/
-}
-
 .monster {
   background: #F26430;
+}
+
+.boss {
+  background: #C63703;
 }
 
 .weapon {
@@ -56,9 +56,3 @@
 .dark {
   background: black;
 }
-
-/*Greenish #2E6171*/
-/*Tomato like #F26430*/
-/*Light Blue #274690*/
-/*Dark Blue #01172F*/
-/*Brown #4C212A*/
