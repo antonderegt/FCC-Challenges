@@ -136,7 +136,7 @@ class Dungeon extends Component {
 
     // Drop random door
     if(dungeon < 4) {
-      for(let i = 0; i < 20; i++) {
+      for(let i = 0; i < 1; i++) {
         let randomNumber = Math.floor((Math.random() * totalSquares))
         if(initialAray[randomNumber] !== 'square wall') {
           initialAray[randomNumber] = 'square door'
