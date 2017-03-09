@@ -50,7 +50,11 @@
 }
 
 .door {
-  background: #01172F;
+  background: purple;
+}
+
+.dark {
+  background: black;
 }
 
 /*Greenish #2E6171*/
