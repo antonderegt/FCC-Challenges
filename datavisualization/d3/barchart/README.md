@@ -1,4 +1,4 @@
-# Bar Chart
+# [Bar Chart](https://antonderegt.github.io/fcc/datavisualization/d3/barchart/dist/index.html)
 
 > Gross Domestic Product of the USA visualized with D3JS and VueJS
 
