@@ -1,6 +1,6 @@
-# barchart
+# Bar Chart
 
-> Data Viz with D3
+> Gross Domestic Product of the USA visualized with D3JS and VueJS
 
 ## Build Setup
 
