@@ -1,22 +1,55 @@
 <template>
-  <div>
-    <h3>Welcome</h3>
-    <p>
-      <h4>This boilerplate uses the following techniques</h4>
-      <ul>
-        <li>
-          <a href="https://github.com/vuejs/vuex" target="_blank" rel="noopener">Vuex</a> (Store)
-        </li>
-        <li>
-          <a href="https://github.com/vuejs/vue-router" target="_blank" rel="noopener">VueRouter</a> (Routing frontend)
-        </li>
-        <li>
-          <a href="http://mongoosejs.com/" target="_blank" rel="noopener">Mongoose</a> (Database to store users and counter)
-        </li>
-        <li>
-          <a href="http://passportjs.org/" target="_blank" rel="noopener">PassportJS</a> (Authentication with GitHub)
-        </li>
-      </ul>
-    </p>
+  <div class="container">
+    <input type="text" v-model="location" placeholder="Location" @keyup.enter="setLocation"/>
+    <button class="btn" @click="setLocation">Search</button>
+    <div v-if="loading" >
+      Loading...
+    </div>
+    <Bar v-for="(bar, index) in this.$store.state.bars" :bar="bar" />
   </div>
 </template>
+
+<script>
+import Bar from './Bar.vue'
+
+export default {
+  data() {
+    return {
+      loading: false,
+      location: ''
+    }
+  },
+  methods: {
+    setLocation() {
+      this.loading = true
+      this.$store.dispatch('saveLocation', this.location)
+      this.$store.dispatch('getBars', this.location)
+    }
+  },
+  mounted() {
+    if(this.$store.state.location) {
+      this.loading = true
+      this.$store.dispatch('getBars', this.$store.state.location)
+    } else {
+      this.loading = true
+      this.$store.dispatch('getLocation', this.$store.state.location)
+    }
+
+    this.$store.subscribe((mutation, state) => {
+      switch (mutation.type) {
+        case 'GET_BARS':
+          this.loading = false
+          this.$store.dispatch('getGoingUsers')
+          break;
+        case 'SAVE_LOCATION':
+          this.$store.dispatch('getBars', this.$store.state.location)
+          break;
+        default:
+      }
+    })
+  },
+  components: {
+    Bar
+  }
+}
+</script>

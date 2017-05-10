@@ -1,14 +1,14 @@
-var express = require('express')
-var router = express.Router()
-var passport = require('passport')
+const express = require('express'),
+      router = express.Router(),
+      passport = require('passport')
 
 router.get('/github',
   passport.authenticate('github'))
 
 router.get('/github/callback',
   passport.authenticate('github', { failureRedirect: '/' }),
-  function(req, res) {
-    res.redirect('/counter')
+  (req, res) => {
+    res.redirect('/')
   })
 
 module.exports = router

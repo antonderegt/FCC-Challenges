@@ -7,9 +7,9 @@ Vue.use(Vuex)
 
 const state = {
   user: {},
-  counts: {
-    count: -1
-  }
+  bars: [],
+  goingUsers: [],
+  location: null
 }
 
 export default new Vuex.Store({

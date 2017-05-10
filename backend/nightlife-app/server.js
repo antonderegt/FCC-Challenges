@@ -4,7 +4,7 @@ const express = require('express'),
       mongoose = require('mongoose'),
       passport = require('passport'),
       session = require('express-session'),
-      count = require('./server/routes/count'),
+      yelp = require('./server/routes/yelp'),
       auth = require('./server/routes/auth'),
       index = require('./server/routes/index')
 
@@ -28,7 +28,7 @@ app.use(passport.initialize())
 app.use(passport.session())
 
 app.use('/auth', auth)
-app.use('/api/count', count)
+app.use('/api/yelp', yelp)
 app.use('/', index)
 
 const port =  process.env.PORT || 3000;
