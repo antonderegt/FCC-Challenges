@@ -6,7 +6,7 @@
     <div class="textBox">
       <a :href="bar.url" target="_blank" rel="noopener"><h3>{{bar.name}}</h3></a>
       <button v-if="userIsGoing" @click="handleClick" class="btn btn-danger">Back out</button>
-      <button v-if="!userIsGoing" @click="handleClick" class="btn btn-success">Go</button> {{numberOfPeopleGoing}} people are going.
+      <button v-else @click="handleClick" class="btn btn-success">Go</button> {{numberOfPeopleGoing}} people are going.
       <p>Address: {{bar.location.display_address[0]}}, {{bar.location.display_address[1]}}, {{bar.location.display_address[2]}}</p>
       <p>Rating: {{bar.rating}}</p>
       <p>Price: {{bar.price}}</p>

@@ -1,13 +1,19 @@
 <template>
   <div id="app">
-    <router-link to="/">Home</router-link> |
-    <a v-if="this.$store.state.user.displayName" href="/logout" @click="signOut">Log Out</a>
-    <router-link v-else to="/signin">Sign In</router-link>
-    <h1>Nightlife App</h1>
-    <div v-if="this.$store.state.user.displayName">
-      <h3>User: {{this.$store.state.user.displayName}}</h3>
-    </div>
-    <hr />
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/">Where do you want to go tonight?</a>
+        </div>
+        <div class="navbar-right">
+          <div v-if="this.$store.state.user.displayName" class="navbar-text">
+            {{this.$store.state.user.displayName}}
+          </div>
+          <a v-if="this.$store.state.user.displayName" class="btn btn-default navbar-btn" href="/logout" @click="signOut">Log Out</a>
+          <router-link v-else to="/signin" class="btn btn-default navbar-btn">Sign In</router-link>
+        </div>
+      </div>
+    </nav>
     <router-view />
   </div>
 </template>
@@ -34,7 +40,6 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 
 h1, h2 {
