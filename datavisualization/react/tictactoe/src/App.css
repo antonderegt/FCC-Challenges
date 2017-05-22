@@ -1,0 +1,36 @@
+body {
+  display: flex;
+  background-color: #3D6D4F;
+  justify-content: center;
+  align-items: center;
+}
+
+.flexContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.flexRow {
+  display: flex;
+  justify-content: center;
+}
+
+.square {
+  margin: 4px;
+  height: 50px;
+  width: 50px;
+  border: 5px solid #0C3934;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.square:active {
+  -webkit-transition: width; /* Safari */
+  -webkit-transition: height; /* Safari */
+  transition: width;
+  transition: height;
+  width: 40px;
+  height: 40px;
+  margin: 9px;
+}
